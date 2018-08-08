@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>разложение числа на простые множители</title>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+    <script src="../static/js/factorize.js"></script>
+	
+    <link href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
+</head>
+ 
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">разложение числа на простые множители</h3>
+      </div>
+
+      <div class="jumbotron">
+		<form target="_self" method="get">
+			<h1 class="display-3">введите число</h1>
+			<input type="number" min="2" class="form-control" id="inputNumber" name="inputNumber" required=""><br>
+			<p><button type="button" id="btnFactorize" class="btn btn-lg btn-success btn-primary">разложить</button></p>
+			<h3>результат</h3>
+			<input class="form-control" readonly="" id="resultNumber" name="resultNumber" value="">
+		</form>	
+      </div>
+	  
+	  <footer class="footer">
+        <p>© <a href="mailto:admin@csgo-boost.ru">Vladimir Melnikov</a> 2018</p>
+      </footer>
+    </div>
+	
+    <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+ 
+</html>
