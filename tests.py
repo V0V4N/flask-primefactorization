@@ -1,4 +1,4 @@
-from primefactor import app
+from app import app
 import unittest
 
 
@@ -17,13 +17,6 @@ class FactorizationTest(unittest.TestCase):
                                follow_redirects=True)
         self.assertIn(b'2*2*3', response.data)
 
-    # Проверка работы с заведомо верным вводом в экспоненциальной форме
-    def test_correct_input_scientific_notation(self):
-        tester = app.test_client(self)
-        response = tester.post('/', data=dict(inputNumber=1.2e1),
-                               follow_redirects=True)
-        self.assertIn(b'2*2*3', response.data)
-
     # Проверка работы с заведомо неверным вводом (текст)
     # в реальности такая ситуация вряд ли возникнет в силу валидации на
     # стороне HTML
@@ -31,7 +24,7 @@ class FactorizationTest(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post('/', data=dict(inputNumber="тест"),
                                follow_redirects=True)
-        self.assertIn(b'NON-INTEGER INPUT', response.data)
+        self.assertIn(b'UNSUPPORTED INPUT', response.data)
 
     # Проверка работы с заведомо неверным вводом (число вне области работы
     # алгоритма - 2 <= n <= 1e+21)

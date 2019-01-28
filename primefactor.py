@@ -11,16 +11,15 @@ def main():
 @app.route('/', methods=['POST'])
 def factorize():
     try:
-        number = float(request.form['inputNumber'])
-        # перевод во float для поддержки экспоненциальной формы записи числа
+        number = int(request.form['inputNumber'])
+        # получение числа из формы
         if 2 <= number <= 1e21:
-            n = int(number)  # перевод числа в int для начала работы алгоритма
-            cache = n  # сохранение изначального числа в int
+            n = number  # число, с которым будет работать алгоритм
         else:
             return render_template('index.html',
                                    resultNumber="INPUT OUT OF RANGE")
     except ValueError:
-        return render_template('index.html', resultNumber="NON-INTEGER INPUT")
+        return render_template('index.html', resultNumber="UNSUPPORTED INPUT")
     i = 2  # начальное значение делителя
     f = []  # список делителей
     while i * i <= n:
@@ -33,7 +32,7 @@ def factorize():
         f.append(n)  # конец вычислений и запись последнего делителя
     result = '*'.join(map(str, f))  # перевод списка делителей в строку
     return render_template('index.html', resultNumber=result,
-                           inputNumber=cache)
+                           inputNumber=number)
 
 
 if __name__ == '__main__':
