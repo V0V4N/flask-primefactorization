@@ -8,8 +8,6 @@
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	
-    <script src="../static/js/factorize.js"></script>
-	
     <link href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
 </head>
  
@@ -21,17 +19,17 @@
       </div>
 
       <div class="jumbotron">
-		<form target="_self" method="get">
+		<form method="POST" action="/">
 			<h1 class="display-3">введите число</h1>
-			<input type="number" min="2" class="form-control" id="inputNumber" name="inputNumber" required=""><br>
-			<p><button type="button" id="btnFactorize" class="btn btn-lg btn-success btn-primary">разложить</button></p>
+			<input type="number" min="2" max="1000000000000000000000" class="form-control" id="inputNumber" name="inputNumber" required="" value="{{ inputNumber }}"><br>
+			<p><input type="submit" id="btnFactorize" class="btn btn-lg btn-success btn-primary" value="разложить"></input></p>
 			<h3>результат</h3>
-			<input class="form-control" readonly="" id="resultNumber" name="resultNumber" value="">
+			<input class="form-control" readonly="" id="resultNumber" name="resultNumber" value="{{ resultNumber }}">
 		</form>	
       </div>
 	  
 	  <footer class="footer">
-        <p>© <a href="mailto:admin@csgo-boost.ru">Vladimir Melnikov</a> 2018</p>
+        <p>© <a href="mailto:admin@csgo-boost.ru">Vladimir Melnikov</a> 2019</p>
       </footer>
     </div>
 	
