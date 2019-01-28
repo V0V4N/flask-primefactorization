@@ -1,4 +1,4 @@
-from app import app
+from primefactor import app
 import unittest
 
 
