@@ -32,7 +32,8 @@ class FactorizationTest(unittest.TestCase):
     # стороне HTML
     def test_incorrect_input_out_of_range(self):
         tester = app.test_client(self)
-        response = tester.post('/', data=dict(inputNumber="1000000000000000000000000000000000000000000000"),
+        response = tester.post('/', data=dict(
+            inputNumber="10000000000000000000000000000000000000000000"),
                                follow_redirects=True)
         self.assertIn(b'INPUT OUT OF RANGE', response.data)
 
